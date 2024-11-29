@@ -1,5 +1,13 @@
 <resources>
 
+        <style name="MyEditStyle" parent="android:Widget.EditText">
+            <item name="android:background">@null</item>
+            <item name="android:textSize">16sp</item>
+            <item name="android:textColor">@color/colorBlack</item>
+            <item name="android:padding">8dp</item>
+        </style>
+
+
     <!-- 普通 -->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
@@ -31,6 +39,7 @@
         <item name="android:windowNoTitle">true</item>    <!--无标题-->
         <item name="android:windowFullscreen">true</item>   <!--全屏-->
         <item name="android:windowIsTranslucent">true</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <!-- 设置Toolbar标题字体的颜色大小 -->

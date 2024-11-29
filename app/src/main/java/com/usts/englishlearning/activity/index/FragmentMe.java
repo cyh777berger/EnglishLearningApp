@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Switch;
@@ -23,7 +22,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
-import com.bumptech.glide.Glide;
 import com.usts.englishlearning.R;
 import com.usts.englishlearning.activity.AboutActivity;
 import com.usts.englishlearning.activity.AlarmActivity;
@@ -34,6 +32,7 @@ import com.usts.englishlearning.activity.ListActivity;
 import com.usts.englishlearning.activity.MainActivity;
 import com.usts.englishlearning.activity.PlanActivity;
 import com.usts.englishlearning.activity.SynchronyActivity;
+import com.usts.englishlearning.activity.UserProfileActivity;
 import com.usts.englishlearning.config.ConfigData;
 import com.usts.englishlearning.database.MyDate;
 import com.usts.englishlearning.database.User;
@@ -45,15 +44,13 @@ import org.litepal.LitePal;
 import java.util.Date;
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
-
 public class FragmentMe extends Fragment implements View.OnClickListener {
 
     private LinearLayout layoutCalendar, layoutWordList, layoutData, layoutPlan, layoutMoney;
 
-    private RelativeLayout layoutAlarm, layoutNotify, layoutAbout, layoutSyno;
+    private RelativeLayout layoutAlarm, layoutNotify, layoutAbout, layoutSyno ;
 
-    private TextView textDays, textWordNum, textMoney;
+    private TextView textDays, textWordNum, textMoney,userprofile;
 
     private TextView textName;
 
@@ -163,11 +160,17 @@ public class FragmentMe extends Fragment implements View.OnClickListener {
     }
 
 
+
+
     private void init() {
         layoutCalendar = getActivity().findViewById(R.id.layout_me_calendar);
         layoutCalendar.setOnClickListener(this);
         layoutWordList = getActivity().findViewById(R.id.layout_me_word_list);
         layoutWordList.setOnClickListener(this);
+
+        userprofile = getActivity().findViewById(R.id.userprofile);
+        userprofile.setOnClickListener(this);
+
         textDays = getActivity().findViewById(R.id.text_me_days);
         textWordNum = getActivity().findViewById(R.id.text_me_words);
         textMoney = getActivity().findViewById(R.id.text_me_money);
@@ -185,7 +188,7 @@ public class FragmentMe extends Fragment implements View.OnClickListener {
         layoutAbout.setOnClickListener(this);
         layoutSyno = getActivity().findViewById(R.id.layout_me_syno);
         layoutSyno.setOnClickListener(this);
-        textName = getActivity().findViewById(R.id.text_me_name);
+        textName = getActivity().findViewById(R.id.tv_name_text);
     }
 
     @Override
@@ -194,6 +197,9 @@ public class FragmentMe extends Fragment implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.layout_me_calendar:
                 intent.setClass(getActivity(), CalendarActivity.class);
+                break;
+            case R.id.userprofile:
+                intent.setClass(getActivity(), UserProfileActivity.class);
                 break;
             case R.id.layout_me_word_list:
                 intent.setClass(getActivity(), ListActivity.class);
@@ -237,3 +243,4 @@ public class FragmentMe extends Fragment implements View.OnClickListener {
     }
 
 }
+

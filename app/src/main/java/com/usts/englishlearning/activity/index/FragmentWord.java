@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -223,29 +224,45 @@ public class FragmentWord extends Fragment implements View.OnClickListener {
         if (!words.isEmpty()) {
             if (myDates.isEmpty()) {
                 // 未完成计划
-                cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorLightBlue));
-                textStart.setTextColor(getActivity().getColor(R.color.colorFontInBlue));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorLightBlue));
+                }
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    textStart.setTextColor(getActivity().getColor(R.color.colorFontInBlue));
+                }
                 textStart.setText("开始背单词");
                 isOnClick = true;
             } else {
                 // 完成计划
                 if ((myDates.get(0).getWordLearnNumber() + myDates.get(0).getWordReviewNumber()) > 0) {
-                    cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorBgWhite));
-                    textStart.setTextColor(getActivity().getColor(R.color.colorFontInWhite));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorBgWhite));
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        textStart.setTextColor(getActivity().getColor(R.color.colorFontInWhite));
+                    }
                     textStart.setText("已完成今日任务");
                     cardStart.setClickable(false);
                     isOnClick = false;
                 } else {
                     // 未完成计划
-                    cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorLightBlue));
-                    textStart.setTextColor(getActivity().getColor(R.color.colorFontInBlue));
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorLightBlue));
+                    }
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        textStart.setTextColor(getActivity().getColor(R.color.colorFontInBlue));
+                    }
                     textStart.setText("开始背单词");
                     isOnClick = true;
                 }
             }
         } else {
-            cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorBgWhite));
-            textStart.setTextColor(getActivity().getColor(R.color.colorFontInWhite));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                cardStart.setCardBackgroundColor(getActivity().getColor(R.color.colorBgWhite));
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                textStart.setTextColor(getActivity().getColor(R.color.colorFontInWhite));
+            }
             textStart.setText("恭喜！已背完此书");
             cardStart.setClickable(false);
             isOnClick = false;

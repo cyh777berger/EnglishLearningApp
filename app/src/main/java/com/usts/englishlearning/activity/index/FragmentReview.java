@@ -1,5 +1,7 @@
 package com.usts.englishlearning.activity.index;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.annotation.SuppressLint;
 import android.app.ActivityOptions;
 import android.app.AlertDialog;
@@ -11,7 +13,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.provider.MediaStore;
@@ -19,28 +20,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 import com.usts.englishlearning.R;
-import com.usts.englishlearning.activity.LearnWordActivity;
-import com.usts.englishlearning.activity.ListActivity;
 import com.usts.englishlearning.activity.OCRActivity;
-import com.usts.englishlearning.activity.SearchActivity;
 import com.usts.englishlearning.activity.load.LoadGameActivity;
 import com.usts.englishlearning.activity.review.MatchActivity;
 import com.usts.englishlearning.activity.review.SpeedActivity;
 import com.usts.englishlearning.config.ConfigData;
-import com.usts.englishlearning.config.ConstantData;
 import com.usts.englishlearning.database.Interpretation;
 import com.usts.englishlearning.database.User;
 import com.usts.englishlearning.database.Word;
@@ -48,21 +43,16 @@ import com.usts.englishlearning.entity.ItemMatch;
 import com.usts.englishlearning.model.CallBackListener;
 import com.usts.englishlearning.object.JsonBaidu;
 import com.usts.englishlearning.object.JsonBaiduWords;
-import com.usts.englishlearning.util.ActivityCollector;
 import com.usts.englishlearning.util.BaiduHelper;
 import com.usts.englishlearning.util.Base64Util;
 import com.usts.englishlearning.util.FileUtil;
 import com.usts.englishlearning.util.MyApplication;
-import com.usts.englishlearning.util.MyPopWindow;
 import com.usts.englishlearning.util.NumberController;
 import com.usts.englishlearning.util.WordController;
 
 import org.litepal.LitePal;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -71,8 +61,6 @@ import java.util.List;
 import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.Call;
 import okhttp3.Response;
-
-import static android.app.Activity.RESULT_OK;
 
 public class FragmentReview extends Fragment implements View.OnClickListener {
 
@@ -403,5 +391,6 @@ public class FragmentReview extends Fragment implements View.OnClickListener {
             SpeedActivity.wordList.add(words.get(randomId[i]));
         }
     }
+
 
 }
